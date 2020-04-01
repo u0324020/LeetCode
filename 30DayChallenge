@@ -1,0 +1,28 @@
+'''
+Given a non-empty array of integers, every element appears twice except for one. Find that single one.
+
+Example 1:
+Input: [2,2,1]
+Output: 1
+
+Example 2:
+Input: [4,1,2,1,2]
+Output: 4
+'''
+
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        a = sorted(nums)
+        Len = len(nums)
+        print(a)
+        for i in range(Len-1,-1,-2):
+            if i == 0:
+                return a[i]
+            if a[i] == a[i-1]:
+                pass
+            else:
+                return a[i]
