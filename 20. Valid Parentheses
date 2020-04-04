@@ -1,0 +1,104 @@
+'''
+Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Note that an empty string is also considered valid.
+
+Example 1:
+
+Input: "()"
+Output: true
+Example 2:
+
+Input: "()[]{}"
+Output: true
+Example 3:
+
+Input: "(]"
+Output: false
+Example 4:
+
+Input: "([)]"
+Output: false
+Example 5:
+
+Input: "{[]}"
+Output: true
+'''
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        s_map = {"(": ")", "[": "]",  "{": "}"}
+        s_set = set(["(", "[", "{"])
+        stack = []
+        for i in s:
+            if i in s_set:#如果是前面的符號，加入stack
+                stack.append(i)
+            elif stack and i == s_map[stack[-1]]: #如果已經有前面的符號，又跟第一個stack第一個的key值一樣
+                stack.pop()#就把stack最後面的刪掉
+            else:
+                return False
+        return stack == []#True
+        
+        # Test One 不能解決"()[]{}"
+        # Test Two 不能解決"{{)}"
+        # 如果是偶數 從第一個跟最後一個開始比對
+        # patten = {'(':1,'{':2,'[':3,')':4,'}':5,']':6}
+        # # pattened = {')':1,'}':2,']':3}
+        # space_org = []
+        # if s is None or len(s)%2 != 0:
+        #     return 0
+        # else:
+        #     for i in s:
+        #         space_org.append(int(patten.get(i)))
+        #     print(space_org)
+        #     L = len(space_org)
+        #     for j in range(0,L,2):
+        #         if int(space_org[j+1])-int(space_org[j])!=3:
+        #             j = L+1
+        #             break
+        #         elif int(space_org[j+1])-int(space_org[j])==3 and L-j == 1:
+        #             return 1
+        #         else:
+        #            break
+            # first = space[:L/2]
+            # last = space[L/2:]
+            # print(first,last)
+            # for k in range((L/2)-1,-1,-1):
+            #     if first[k] == last[(L/2)-1-k]:
+            #         break
+            #     else:
+            #         return 0
+            # return 1
+            
+                
+            # first = s[:len(s)/2]
+            # last = s[len(s)/2:]
+            # count = len(first)
+            # for i in range(count):
+            #     if first[i] == "(" and last[count-1-i] ==")":
+            #         break
+            #     if first[i] == "{" and last[count-1-i] =="}":
+            #         break
+            #     if first[i] == "[" and last[count-1-i] =="]":
+            #         break
+            #     elif len(s)>2:
+            #         if first[i] == "(" and first[i+1] ==")":
+            #             break
+            #         if first[i] == "{" and first[i+1] =="}":
+            #             break
+            #         if first[i] == "[" and first[i+1] =="]":
+            #             break
+            #         else:
+            #             return 0
+            #     else:
+            #         return 0
+            # return 1
+            
+                    
