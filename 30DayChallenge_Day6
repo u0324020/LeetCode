@@ -48,10 +48,14 @@ class Solution(object):
             if b!=0:
                 pointer.append(b+pointer[len(pointer)-1])
         print(pointer,ans_index)
-        ans = []
+        ans = [[] for i in range(len(pointer)-1)]
+        print(ans)
         p = 0
+        c = 0
         for i in pointer[1:]:
             for j in range(p,i):
-                ans.append([str(strs[ans_index[j]])])
+                ans[c].append(str(strs[ans_index[j]]))
             p = i
+            c+=1
+            
         return ans
