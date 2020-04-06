@@ -42,22 +42,22 @@ logn < n < n^1/2 <nlogn < n^2 < 2^n < N!
  # Big O of book
  1. 並排的for迴圈不管多少都是 = O(n)
  2. 巢狀迴圈 兩層for = O(n^2)
- 3. for i in range(5):
-       for j in range(i+1,5):
-         do...
-    inner for loog 起始值與前一個相關就要分析: 1. Counting the Iterations 2. What It Means 3. Visualizing What It Does 4. Average Work
+ 3. for i in range(5):<br>
+       for j in range(i+1,5):<br>
+         do...<br>
+    inner for loog 起始值與前一個相關就要分析: 1. Counting the Iterations 2. What It Means 3. Visualizing What It Does 4. Average Work<br>
    結果皆為O(n^2)
- 4. 3個loop迴圈 其中一個是無關緊要的判斷 for i in range(10000)
+ 4. 3個loop迴圈 其中一個是無關緊要的判斷 for i in range(10000)<br>
     O(n^2)
- 5. 遞迴(Recursive Patten)
+ 5. 遞迴(Recursive Patten)<br>
     O(branches^depth) , branches = 一次分幾個遞迴
  6. return n * function(n-1) ->從n, n-1, n-2...., 1-> O(n)  
- 7. Fibonacci -> O(branches^depth)-> O(2^n):
-    def fibonacci(n):
-       if n<=0 :
-         return 0
-       elif n==1 :
-         return 1
-       else:
+ 7. Fibonacci -> O(branches^depth)-> O(2^n):<br>
+    def fibonacci(n):<br>
+       if n<=0 :<br>
+         return 0<br>
+       elif n==1 :<br>
+         return 1<br>
+       else:<br>
          return fibonacci(n-1) + fibonacci(n-2)
 
