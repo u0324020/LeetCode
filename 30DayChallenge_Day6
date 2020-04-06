@@ -1,0 +1,57 @@
+'''
+解謎
+Given an array of strings, group anagrams together.
+
+Example:
+
+Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
+Output:
+[
+  ["ate","eat","tea"],
+  ["nat","tan"],
+  ["bat"]
+]
+Note:
+
+All inputs will be in lowercase.
+The order of your output does not matter.
+'''
+# Time = O(NKlogK) where N is the length of strs, and K is the maximum length of a string in strs
+# Space = O(NK)
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        # Ans 1-> function
+        # ans = collections.defaultdict(list)
+        # for s in strs:
+        #     ans[tuple(sorted(s))].append(s)
+        # return ans.values()
+        
+#Org : Sort->find->index
+        temp=[]
+        ans_index=[]
+        for j in strs:
+            temp.append(sorted(j))
+        a = len(temp)
+        pointer = []
+        pointer.append(0)
+        
+        for k in range(a):
+            b = 0
+            for i in range(a):
+                if temp[k] == temp[i] and i not in ans_index:
+                    ans_index.append(i)
+                    b+=1
+            if b!=0:
+                pointer.append(b+pointer[len(pointer)-1])
+        print(pointer,ans_index)
+        ans = []
+        p = 0
+        for i in pointer[1:]:
+            for j in range(p,i):
+                ans.append([str(strs[ans_index[j]])])
+            p = i
+        return ans
