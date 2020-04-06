@@ -1,6 +1,7 @@
 # LeetCode
 A LeetCode a day keep bugs away
 
+2^X = N -> logN = X
 
 logn < n < n^1/2 <nlogn < n^2 < 2^n < N!
 
@@ -39,6 +40,22 @@ logn < n < n^1/2 <nlogn < n^2 < 2^n < N!
  Best Time: O(nlogn)<br>
  Space: O(1)<br>
  
+ # 6) Binary Search Tree(BST)->Time O(logn), Space O(n): 
+     1. Ordered, or sorted, binary trees.<br>
+     2. Nodes can have 2 subtrees.<br>
+     3. Items to the left of a given node are smaller.<br>
+     4. Items to the right of a given node are larger.<br>
+     - red-black tree(RB-Tree)<br>
+     1. A node is either red or black<br>
+     2. T root and leaves(NIL) are black.<br>
+     3. If a node is red, the its children are black.<br>
+     4. All paths from a node to its NIL descendants contain the same number of black nodes.<br>
+     Ps. 1. Nodes require one storage bit to keep track of color.<br>
+         2. The longest path(root to farthest NIL) is no more than twice the length of the shortest path(root to nearest NIL).<br>
+     Binary Search Tree operations:<br>
+     1. Search<br>
+     2. Insert -> require rotation<br>
+     3. Remove -> require rotation<br>
  # Big O of book
  1. 並排的for迴圈不管多少都是 = O(n)
  2. 巢狀迴圈 兩層for = O(n^2)
