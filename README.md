@@ -3,7 +3,7 @@ A LeetCode a day keep bugs away
 
 2^X = N -> logN = X
 
-logn < n < n^1/2 <nlogn < n^2 < 2^n < N!
+1 < logn < n^1/2 < n < nlogn < n^2 < 2^n < N!
 
 # 1) Bubble Sort : 
 依照序列順序，一次比較兩個元素，順序錯誤就將其交換<br>
