@@ -1,8 +1,9 @@
 # LeetCode
+演算法是解決一問題的有限步驟，程式的效率一般是利用Big-O做評估，
 A LeetCode a day keep bugs away
 
 2^X = N -> logN = X
-
+在N夠大的前提下:
 1 < logn < n^1/2 < n < nlogn < n^2 < 2^n < N!
 
 # 1) Bubble Sort : 
@@ -77,4 +78,10 @@ A LeetCode a day keep bugs away
          return 1<br>
        else:<br>
          return fibonacci(n-1) + fibonacci(n-2)
+         
+# Array in Python
+一維串列: A = [None]* 20
+二維串列: A = [[None]* 10 for rows in range(20)]
+三維串列: A = [[[None for z in range(10)]for x in range(20)]for y in range(30)]
+
 
