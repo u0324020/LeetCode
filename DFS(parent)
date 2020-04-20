@@ -1,0 +1,43 @@
+
+#encoding:utf-8
+'''
+DFS 深度優先演算法 - > stack 找最後進去的元素
+樹與圖的不同：1. 樹有根節點 2. 圖需要選擇一個開始節點
+1. 假設選A做根節點
+2. 走到底沒點了就往回找
+3. 最後走完要往回跳(parent)
+DFS的答案不唯一
+
+設置Parent的好處：
+若有成千上百個點時
+可以直接從某個終點一直往回找到某個起點
+會更快
+'''
+graph = {
+	"A":["B","C"],
+	"B":["A","C","D"],
+	"C":["A","B","D","E"],
+	"D":["B","C","E","F"],
+	"E":["C","D"],
+	"F":["D"]
+}
+
+def DFS(graph,start):
+	stack = [] #make a stack
+	stack.append(start) 
+	seen = set() # set only can exist one
+	seen.add(start)
+	parent ={start:None}
+	while (len(stack)>0):
+		vertex = stack.pop()#because is stack, pop last index
+		nodes = graph[vertex]#to find the connection of vertex
+		for w in nodes:
+			if w not in seen:
+				stack.append(w)#if not seen, add to queue
+				seen.add(w)
+				parent[w] = vertex
+		print(vertex)
+	return parent
+
+parent = DFS(graph,"A")
+print(parent)
