@@ -100,4 +100,6 @@ A LeetCode a day keep bugs away
 二維串列: A = [[None]* 10 for rows in range(20)]
 三維串列: A = [[[None for z in range(10)]for x in range(20)]for y in range(30)]
 
-
+# Python
+1. https://blog.kdchang.cc/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/
+2. Dict https://medium.com/ccclub/ccclub-python-for-beginners-tutorial-533b8d8d96f3
