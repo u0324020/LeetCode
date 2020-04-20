@@ -41,7 +41,23 @@ A LeetCode a day keep bugs away
  Best Time: O(nlogn)<br>
  Space: O(1)<br>
  
- # 6) Binary Search Tree(BST)->Time O(logn), Space O(n): 
+ # 6) Heap Sort : 
+ Binary Heap可以分為Min Heap與Max Heap兩種<br>
+ 特徵一：Binary Heap之結構可以視作Complete Binary Tree<br>
+ 特徵二：若將位於index(i)之node視為subtree之root，那麼，可將此Binary Heap分為max, min heap<br>
+ 作法(Max-heap)：<br>
+ 1. 先從Array建立Binary Tree<br>
+ 2. Binary Tree root開始跟nodes比較將大的交換<br>
+ 3. 遍歷後最大Node就會跑到root<br>
+ 4. 再把root跟最尾端的node交換<br>
+ 5. 把最尾端的node(max)提出到heap sort array中<br>
+ 再重複2 to 5直到Tree空了為止，heap sort array就是max-heap sort<br>
+ Worst Time: O(nlogn)<br>
+ Avg Time: O(nlogn)<br>
+ Best Time: O(nlogn)<br>
+ Space: O(1)<br>
+ 
+ # 7) Binary Search Tree(BST)->Time O(logn), Space O(n): 
      1. Ordered, or sorted, binary trees.
      2. Nodes can have 2 subtrees.
      3. Items to the left of a given node are smaller.
