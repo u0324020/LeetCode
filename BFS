@@ -1,0 +1,35 @@
+
+#encoding:utf-8
+'''
+BFS 廣度優先演算法 -> queue 找最先進去的元素
+樹與圖的不同：1. 樹有根節點 2. 圖需要選擇一個開始節點
+1. 假設選A做根節點
+2. 找出和A相連且相隔一個的點 就是B和C
+3. 再找出和BC相連且與A相隔二個點 就是D和E
+4. 最後找和DE相連且與A相隔三個點 就是F
+所以若以A開始的順序"可能"是 A,B,C,D,E,F
+(因為若先找到C再找B 後面就要先找C相連的E 所以順序會變)
+'''
+graph = {
+	"A":["B","C"],
+	"B":["A","C","D"],
+	"C":["A","B","D","E"],
+	"D":["B","C","E","F"],
+	"E":["C","D"],
+	"F":["D"]
+}
+
+def BFS(graph,start):
+	queue = [] #make a queue
+	queue.append(start) 
+	seen = set() # set only can exist one
+	seen.add(start)
+	while (len(queue)>0):
+		vertex = queue.pop(0)#because is queus, pop first index
+		nodes = graph[vertex]#to find the connection of vertex
+		for w in nodes:
+			if w not in seen:
+				queue.append(w)#if not seen, add to queue
+				seen.add(w)
+		print(vertex)
+BFS(graph,"A")
