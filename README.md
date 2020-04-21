@@ -103,3 +103,9 @@ A LeetCode a day keep bugs away
 # Python
 1. https://blog.kdchang.cc/2017/08/15/learning-programming-and-coding-with-python-list-tuple-dict-set/
 2. Dict https://medium.com/ccclub/ccclub-python-for-beginners-tutorial-533b8d8d96f3
+
+# 三種 Interative Binary Tree Traversal 的方法 (In-Order, Pre-Order and Post-Order)
+pre-, in-, post-是指parent node相對於child node的順序
+preorder: 中->左->右
+inorder: 左->中->右
+postorder: 左->右->中
