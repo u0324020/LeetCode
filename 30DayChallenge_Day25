@@ -1,0 +1,46 @@
+'''
+Using Greedy
+Given an array of non-negative integers, you are initially positioned at the first index of the array.
+
+Each element in the array represents your maximum jump length at that position.
+
+Determine if you are able to reach the last index.
+
+Example 1:
+
+Input: [2,3,1,1,4]
+Output: true
+Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
+Example 2:
+
+Input: [3,2,1,0,4]
+Output: false
+Explanation: You will always arrive at index 3 no matter what. Its maximum
+             jump length is 0, which makes it impossible to reach the last index.
+'''
+class Solution(object):
+    def canJump(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        reach = 0 #最大可以跳的長度
+        for i, num in enumerate(nums):#用enumerate尋遍位置與值
+            if i > reach:#如果此位置比最大可跳的長度小 就跳不到
+                return False
+            reach = max(reach, i + num)#找目前最長與下個點的跳板哪個大 當作下個最長距離
+        return True
+    
+        #Mine
+        # _len = len(nums)
+        # position = 0
+        # while position < _len:
+        #     nums = nums[position:]
+        #     if nums==0:
+        #         return False
+        #     else:
+        #         position+= nums[position]
+        # if position-1 == _len:
+        #     return True
+        # else:
+        #     return False
