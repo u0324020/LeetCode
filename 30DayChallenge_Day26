@@ -1,0 +1,44 @@
+class Solution(object):
+    def longestCommonSubsequence(self, text1, text2):
+        """
+        :type text1: str
+        :type text2: str
+        :rtype: int
+        """
+        https://www.youtube.com/watch?v=ASoaQq66foQ&t=384s
+        #DP 表格比對
+        #讓最邊邊的""比對""時會都是0 所以len(text2) + 1跟len(text1) + 1 = [0]
+        dp_grid = [[0] * (len(text2) + 1) for _ in range(len(text1) + 1)]
+        #從後面遍歷回去 for i in reversed() = range(len(text2),0)
+        for col in reversed(range(len(text2))):
+            for row in reversed(range(len(text1))):
+                #如果一樣就在表格中的前一個值再加一
+                if text2[col] == text1[row]:
+                    dp_grid[row][col] = 1+dp_grid[row+1][col+1]
+                else:#如果不一樣就找row的前一個值與col前一個值較大者
+                    dp_grid[row][col] = max(dp_grid[row+1][col],dp_grid[row][col+1])
+        return dp_grid[0][0] #最後第一個就是答案
+
+        #Mine
+        # d = {}
+        # n = 0
+        # ans = 0
+        # for i in text1:
+        #     if i not in d:
+        #         d[i] = 1
+        #     else:
+        #         n = d[i]
+        #         n+=1
+        #         d[i] = n
+        # for i in text2:
+        #     if i not in d:
+        #         pass
+        #     else:
+        #         n = d[i]
+        #         n+=1
+        #         d[i] = n
+        # for i in d:
+        #     print(d[i])
+        #     if d[i] > 1:
+        #         ans+=1
+        # return ans
