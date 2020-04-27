@@ -1,0 +1,37 @@
+'''
+Given a 2D binary matrix filled with 0's and 1's, find the largest square containing only 1's and return its area.
+
+Example:
+
+Input: 
+
+1 0 1 0 0
+1 0 1 1 1
+1 1 1 1 1
+1 0 0 1 0
+
+Output: 4
+'''
+class Solution(object):
+    def maximalSquare(self, matrix):
+        """
+        :type matrix: List[List[str]]
+        :rtype: int
+        """
+        #用動態規劃解決
+        if not matrix:
+            return 0
+        m = len(matrix)#x軸長度
+        n = len(matrix[0])#y軸長度
+        dp = [[0]*n for anyone in range(m)]#畫出跟matrix一樣大的表格，預設0
+        for i in range(m):#把Topmost跟原本的設為一樣的值
+            dp[i][0] = int(matrix[i][0])
+        for j in range(n):#把Leftmost跟原本的設為一樣的值
+            dp[0][j] = int(matrix[0][j])
+        for i in range(1,m):#從第二行第二列開始
+            for j in range(1,n):
+                if matrix[i][j] == '1':#只考慮是1的可能
+                    dp[i][j] = min(dp[i][j-1],dp[i-1][j],dp[i-1][j-1])+1
+                    #計算表格左上角、上方、左邊的最小值(因為0就不行)，在加1(自己)
+        #print(map(max,dp))# map可以將方法映射到後面全部的值，所以在dp每個值中每row中找出最大的
+        return max(map(max,dp))**2  #在從中找最大的平方就是面積答案(2**2=二的二次方，2**3=二的三次方)
