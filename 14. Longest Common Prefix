@@ -1,0 +1,61 @@
+'''
+Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+Example 1:
+
+Input: ["flower","flow","flight"]
+Output: "fl"
+Example 2:
+
+Input: ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+Note:
+
+All given inputs are in lowercase letters a-z.
+'''
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        #最快的方法 用try except
+        result = ""
+        i=0 #讓每個字從第一個值開始比
+        
+        while True:
+            try:#set可以找到唯一值
+                _set = set(string[i] for string in strs)
+                if len(_set) == 1:#如果每個字的第一個值是唯一且一樣的值
+                    result+= _set.pop()#把最後加進去的值pop出來給result
+                    i+=1#往後迭代
+                else:
+                    break
+            except:
+                break
+        return result
+        # For Loop
+        # if not strs:
+        #     return ""
+        # for i in range(len(strs[0])):#以第一個字為基礎去比較
+        #     for string in strs[1:]:#從第二個開始比是否跟第一個一模一樣，另一個情況是一跟二都一模一樣就要比第三個
+        #         if i >= len(string) or string[i] != strs[0][i]:
+        #             return strs[0][:i]
+        # return strs[0]#如果list只有""就回傳""，如果三個都一樣就回傳第一個值
+        #Mine
+        # if len(strs) == 0:
+        #     return ""
+        # strs = sorted(strs) #先把字串照長度排序
+        # res = '' #共同的字
+        # for i in strs[0]: #從最短的字最前面找起
+        #     if strs[-1].startswith(res+i): #與最長的字配對找前面共同字+1是否相符
+        #         res+=i#如果相符把共同字加一個字
+        #     else:
+        #         break
+        # return res
+                
+
+            
