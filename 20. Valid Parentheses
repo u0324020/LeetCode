@@ -36,17 +36,25 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        s_map = {"(": ")", "[": "]",  "{": "}"}
-        s_set = set(["(", "[", "{"])
         stack = []
+        dic = {"(": ")", "[": "]",  "{": "}"}
         for i in s:
-            if i in s_set:#如果是前面的符號，加入stack
+            if i in dic: #如果是前面的符號就放進stack
                 stack.append(i)
-            elif stack and i == s_map[stack[-1]]: #如果已經有前面的符號，又跟第一個stack第一個的key值一樣
-                stack.pop()#就把stack最後面的刪掉
-            else:
-                return False
-        return stack == []#True
+            elif len(stack)==0 or dic[stack.pop()]!=i:#比對stack最後面的字典value是不是i
+                return False#如果stack長度是0代表沒有前面的符號
+        return len(stack) == 0#因為有可能是"["的情況
+        # s_map = {"(": ")", "[": "]",  "{": "}"}
+        # s_set = set(["(", "[", "{"])
+        # stack = []
+        # for i in s:
+        #     if i in s_set:#如果是前面的符號，加入stack
+        #         stack.append(i)
+        #     elif stack and i == s_map[stack[-1]]: #如果已經有前面的符號，又跟第一個stack第一個的key值一樣
+        #         stack.pop()#就把stack最後面的刪掉
+        #     else:
+        #         return False
+        # return stack == []#True
         
         # Test One 不能解決"()[]{}"
         # Test Two 不能解決"{{)}"
