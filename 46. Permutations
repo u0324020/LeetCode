@@ -1,0 +1,42 @@
+'''
+Given a collection of distinct integers, return all possible permutations.
+
+Example:
+
+Input: [1,2,3]
+Output:
+[
+  [1,2,3],
+  [1,3,2],
+  [2,1,3],
+  [2,3,1],
+  [3,1,2],
+  [3,2,1]
+]
+'''
+class Solution(object):
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        if len(nums)<=1:#如果沒有就回傳空 僅一個就回傳一個
+            return [nums]
+        ans = []
+        for i, k in enumerate(nums):#enumerate遍歷每個值當host
+            n = nums[:i]+nums[i+1:]#把其他值合再一起
+            for j in self.permute(n):#再以除了host外的新的組合繼續做
+                ans.append([k]+j)#把所有可能跟當次的host加起來存
+        return ans
+        # LeetCode Solution
+        # def BT(first=0):
+        #     if first == n:
+        #         ans.append(nums[:])
+        #     for i in range(first,n):
+        #         nums[first], nums[i] = nums[i],nums[first]
+        #         BT(first+1)
+        #         nums[first], nums[i] = nums[i], nums[first]
+        # n = len(nums)
+        # ans = []
+        # BT()
+        # return ans
