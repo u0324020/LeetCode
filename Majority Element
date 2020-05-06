@@ -19,3 +19,7 @@ class Solution:
         #ans = c.most_common() #會依照頻率排序
         #ans = [(3, 2), (2, 1)]
         return((c.most_common())[0][0])#3
+        
+        #別人的解法
+        counts = collections.Counter(nums)
+        return max(counts.keys(), key=counts.get)
