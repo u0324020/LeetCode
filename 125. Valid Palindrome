@@ -1,0 +1,25 @@
+'''
+Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
+
+Note: For the purpose of this problem, we define empty string as valid palindrome.
+
+Example 1:
+
+Input: "A man, a plan, a canal: Panama"
+Output: true
+Example 2:
+
+Input: "race a car"
+Output: false
+'''
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        #string.punctuation 如果是符號就換成空值
+        s = "".join([c.lower() for c in s if c not in string.punctuation and c != " "])
+        #剔除符號跟空字符
+        i = 0
+        j = len(s) - 1
+        while i < j and s[i] == s[j]:
+            i += 1
+            j -= 1
+        return i >= j
