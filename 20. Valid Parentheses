@@ -111,4 +111,19 @@ class Solution(object):
             #         return 0
             # return 1
             
+     class Solution:
+    def isValid(self, s: str) -> bool:
+        left = ['(','[','{']
+        right = [')',']','}']
+        stack = []
+        for i in s:
+            if i in left:
+                stack.append(i)
+            elif i in right:
+                if len(stack) <= 0:
+                    return False
+                if left.index(stack.pop()) != right.index(i):
+                    print()
+                    return False
+        return stack==[]
                     
