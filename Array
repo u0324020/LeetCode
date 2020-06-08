@@ -1,0 +1,30 @@
+    A = [3, 8, 9, 7, 6]
+    K = 3
+the function should return [9, 7, 6, 3, 8]. Three rotations were made:
+
+    [3, 8, 9, 7, 6] -> [6, 3, 8, 9, 7]
+    [6, 3, 8, 9, 7] -> [7, 6, 3, 8, 9]
+    [7, 6, 3, 8, 9] -> [9, 7, 6, 3, 8]
+For another example, given
+
+    A = [0, 0, 0]
+    K = 1
+the function should return [0, 0, 0]
+
+Given
+
+    A = [1, 2, 3, 4]
+    K = 4
+the function should return [1, 2, 3, 4]
+
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+
+def solution(A, K):
+    # write your code in Python 3.6
+    if len(A)==K:
+        return A
+    for i in range(K):
+        temp = A.pop()
+        A.insert(0,temp)
+    return A
