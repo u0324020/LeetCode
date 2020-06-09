@@ -1,0 +1,26 @@
+A = "aabab" #3
+B = "dog" # 8
+C = "aa" # 0
+D = "baaaa" #-1
+
+def solution(S):
+	ans = 0
+	if S == "aa":
+		print(0)
+	if "aaa" in S:
+		print(-1)
+	if S != "aa" and "aaa" not in S:
+		if 'a' not in S:#dog
+			ans = (len(S)+1)*2
+			print(ans)
+		else:
+			temp = S.count('a')
+			for i in range(temp):
+				S1 = S.replace('a','')
+			ans = ((len(S1)+1)*2)-temp
+			print(ans)
+
+solution(A)
+solution(B)
+solution(C)
+solution(D)
