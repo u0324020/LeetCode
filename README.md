@@ -110,4 +110,22 @@ preorder: 中->左->右<br>
 inorder: 左->中->右<br>
 postorder: 左->右->中<br>
 
+# TCP
+TCP通訊協定屬於TCP/IP中的應用層，
+包含建立連線、資料傳送和終止連線
+建立三方交握才完成
+1. client傳送同步封包(SYN_1)給server
+2. server傳送同步封包(SYN_2)跟確認封包(ACK_1)給client
+3. client傳送確認封包(ACK_2)給server
+
+# UDP
+UDP不能保證封包皆能成功傳送，也不能防止重複傳送，但UDP的簡單性降低了協定的overhead
+UDP的應用場景:
+1. 從伺服器端廣播至網路上的裝置時
+2. HTTP 至DNS server查找IP位址時 (UDP 53 port)
+
+# HTTP
+client跟server使用HTTP協定來傳輸資料，會先利用UDP 53 port向系統設定的DNS server查詢對應IP，方能進行TCP三方交握過程建立連線並處理資料
+
+
 
