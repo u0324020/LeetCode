@@ -1,0 +1,19 @@
+
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+
+def solution(A):
+    # write your code in Python 3.6
+    bin_A = []
+    for i in A:
+    	bin_A.append(bin(i)[2:].zfill(30))
+    sum = [0 for i in range(30)]
+    for i in range(len(bin_A)):
+        for j in range(30):
+            if bin_A[i][j] == '1':
+                sum[j]+=1
+    print(sum)
+    return max(sum)
+
+
+print(solution([13,7,2,8,3]))
