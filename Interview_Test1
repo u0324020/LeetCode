@@ -1,0 +1,26 @@
+def solution(N):
+    # write your code in Python 3.6
+    # N = 1 - 50000
+    def Split_add(S):
+        Add_ans = 0
+        sub_N = []
+        while(S>0):
+            sub_N.append(S%10)
+            S/=10
+        for i in range(len(sub_N)):
+            Add_ans+=sub_N[i]
+        return Add_ans
+    
+    ans_add = Split_add(N)
+    try_add = 0
+    while True:
+        N+=1
+        try_add = Split_add(N)
+        if try_add == ans_add:
+            break
+    return N
+
+print("28-->"+str(solution(28)))
+print("734-->"+str(solution(734)))
+print("1990-->"+str(solution(1990)))
+print("1000-->"+str(solution(1000)))
