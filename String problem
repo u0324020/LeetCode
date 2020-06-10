@@ -1,0 +1,52 @@
+A = "nice"
+A1 = "nicer"
+B = "will"
+B1 = "ill"
+C = "late"
+C1 = "tale"
+D = "o"
+D1 = "odd"
+E = "say"
+E1 = "say"
+F = "dsadwee"
+F1 = "w"
+G = "qwert"
+G1 = "qsdft"
+def solution(S,T):
+	if S == T:
+		print("equal")
+	if len(S) < len(T): #A,D
+		temp = T.replace(S,"")
+		if len(temp) == 1:
+			print("insert "+str(temp))
+		if len(temp) > 1:
+			print("impossible")
+	if len(S) > len(T): #B, F
+		temp = S.replace(T,"")
+		if len(temp) == 1:
+			print("remove "+str(temp))
+		if len(temp) > 1:
+			print("impossible")
+	elif len(S) == len(T):# C
+		_len = len(S)
+		char_1, char_2, char_3 = {}, {}, ""
+		for i, j in enumerate(S):
+			char_1[j] = i
+		for z, k in enumerate(T):
+			char_2[k] = z
+		for x in range(len(S)):
+			if char_1[S[x]] != char_2[S[x]]:
+				char_3+=S[x]
+		if len(char_3)==2:
+			print("SWAP "+str(char_3))
+		else:
+			print("impossible")
+solution(A,A1)
+solution(B,B1)
+solution(C,C1)
+solution(D,D1)
+solution(E,E1)
+solution(F,F1)
+solution(G,G1)
+
+
