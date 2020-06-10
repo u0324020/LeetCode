@@ -1,0 +1,26 @@
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+#[1,2,3,4,5]
+def solution(A):
+    if len(A)==0:
+        return 0
+    max_ans = 0
+    NL = []
+    count = 0
+    for i in range(len(A)):
+        count = 1
+        head = i
+        tail = A[i]
+        if i!=A[i]:
+            if head not in NL or head ==0:
+                NL.append(head)
+                NL.append(tail)
+                while head!=tail:
+                    tail = A[tail]
+                    NL.append(tail)
+                    count+=1
+        if count>max_ans:
+            max_ans = count
+            
+    return max_ans
+print(solution([5, 4, 0, 3, 1, 6, 2]))
