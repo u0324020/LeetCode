@@ -127,5 +127,7 @@ UDP的應用場景:
 # HTTP
 client跟server使用HTTP協定來傳輸資料，會先利用UDP 53 port向系統設定的DNS server查詢對應IP，方能進行TCP三方交握過程建立連線並處理資料
 
-
+# PCAP Analysis
+DDoS攻擊現象：
+如果攻擊是用TCP執行，可以看到三方交握的第一個SYN封包一直傳送，這樣的情況下會耗盡系統資源，並一直在等待回應SYN/ACK封包。
 
