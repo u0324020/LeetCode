@@ -131,3 +131,8 @@ client跟server使用HTTP協定來傳輸資料，會先利用UDP 53 port向系�
 DDoS攻擊現象：
 如果攻擊是用TCP執行，可以看到三方交握的第一個SYN封包一直傳送，這樣的情況下會耗盡系統資源，並一直在等待回應SYN/ACK封包。
 
+# Program, Process, Thread
+1. Program 尚未載入記憶體的程式碼（相同Program的Process可以同時存在多個）：工廠藍圖
+2. Process 已經執行Program並載入記憶體的程式碼，每一個Process都是獨立的、Process本身不是基本執行單位，而是Thread(執行緒)的容器：工廠
+3. Thread Process中會有多個Thread、Thread間共享同一個Process的資源與變數且互相溝通：工人
+再多執行緒中，若不同的Thread同時存取同個資源則會有同步問題、互搶資源則有死結狀況
