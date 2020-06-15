@@ -175,3 +175,17 @@ DDoS攻擊現象：
 # 系統發展生命週期(System Development Life Cycle,SDLC)
 描述一個資訊系統從規劃、建立、測試到最終完成部署的全過程
 
+# ARP(Address Revolution Protocol)
+1. 用IP位置詢問對方mac位置
+2. ARP只適用於IPv4，不適用於IPv6
+
+# ICMP(Internet Control Message Protocol)
+確認封包成功傳輸至目的地的協議
+並且提供封包傳送失敗的原因
+
+# DHCP（Dynamic Host Configuration Protocol）
+自動設定IP地址、統一管理IP地址分配
+1. 封包傳送失敗
+
+# NAT（Network Address Translator）
+對內使用私有IP 對外使用全域IP
