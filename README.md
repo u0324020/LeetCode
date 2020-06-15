@@ -124,6 +124,10 @@ UDP的應用場景:
 1. 從伺服器端廣播至網路上的裝置時
 2. HTTP 至DNS server查找IP位址時 (UDP 53 port)
 
+# Socket
+Socket是網路上的兩個程式,在傳輸層通過一個雙向的通訊連線,實現資料的交換
+一組IP+Port即為socket最基本的概念
+
 # HTTP
 client跟server使用HTTP協定來傳輸資料，會先利用UDP 53 port向系統設定的DNS server查詢對應IP，方能進行TCP三方交握過程建立連線並處理資料
 
@@ -159,3 +163,15 @@ DDoS攻擊現象：
 2. NoSQL沒有Schema 利用JSON存資料(內容不拘) 比較彈性
 3. NoSQL最適合收集數據 缺點是查詢速度較慢
 4. SQL跟NoSQL不是互斥的
+
+# 軟體開發流程
+1. 需求分析
+2. 規劃
+3. 設計
+4. 實作
+5. 測試
+6. 維護
+
+# 系統發展生命週期(System Development Life Cycle,SDLC)
+描述一個資訊系統從規劃、建立、測試到最終完成部署的全過程
+
