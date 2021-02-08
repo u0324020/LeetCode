@@ -7,6 +7,6 @@ Usually, this space is O(log n), though sometimes anything in O(n) is allowed.
 Quicksort operates in-place on the data to be sorted. However, quicksort requires O(log n) stack space pointers to keep track of the subarrays in its divide and conquer strategy.
 
 python reverse
-、class Solution:
+'class Solution:'
 	def reverseString(self, s: List[str]) -> None:
 		s.reverse()、
